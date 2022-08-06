@@ -4,64 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D3.js Repo</title>
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <svg viewBox="0 0 600 300">
-      <line x1="50" y1="45" x2="140" y2="225" stroke="red" stroke-width="3"/>
-      <g transform="translate(25, 10)">
-        <rect
-          x="260"
-          y="25"
-          width="25%"
-          height="60"
-          fill="purple"
-          fill-opacity="0.5"
-          stroke="purple"
-          rx="10"
-          ry="10"
-        />
-        <text x="300" y="100" style="text-anchor:middle">Rect</text>
-      </g>
-
-      <rect
-        x="100"
-        y="25"
-        width="50"
-        height="50"
-        fill="transparent"
-        fill-opacity="0.5"
-        stroke="red"
-        stroke-width="3"
-        rx="10"
-        ry="10"
-      />
-
-      <circle
-        cx="530"
-        cy="80"
-        r="50"
-        fill="#81c21c"
-      />
-
-      <ellipse
-        cx="530"
-        cy="205"
-        rx="50"
-        ry="30"
-        fill="#90c89c"
-      />
-
-      <path
-        d="M100 150 C 110 80, 225 80, 455 150 S 410 220, 540 150"
-        fill="none"
-        stroke="#773b9a"
-        stroke-width="3"
-      />
-
-      <text x="60" y="60">line</text>
+    <div class="container">
+      <h1>D3 bar</h1>
+    </div>
+    <div id="svg-container" class="border-red">
       
-      <text x="530" y="155" style="text-anchor:middle">circle</text>
-      
-    </svg>
+    </div>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
