@@ -9,3 +9,7 @@ rect {
 .border-red {
   border: 1px solid red;
 }
+
+.container {
+  max-width: 600px;
+}
