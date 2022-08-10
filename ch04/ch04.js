@@ -43,13 +43,14 @@ const drawLineChart = (data) => {
 }
 
 const drawXAxis = (chart, xScale, innerHeight) => {
-  const bottomAxis = d3.axisBottom(xScale)
+  const xAxis = d3.axisBottom(xScale)
   chart
     .append("g")
       .attr("class", "axis-x")
       .attr("transform", `translate(0, ${innerHeight})`)
-      .call(bottomAxis)
+      .call(xAxis)
 }
 
 const drawYAxis = (chart, yScale) => {
+  // const yAxis = d3.
 }
