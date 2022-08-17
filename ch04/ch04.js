@@ -28,22 +28,35 @@ const drawLineChart = (data) => {
     .append("g")
       .attr("transform", `translate(${margin.left}, ${margin.top})`)
 
-  const minDate = d3.min(data, d => d.date)
+    drawXAxis(innerChart, data, innerHeight)
+    drawYAxis(innerChart, data, innerHeight)
+
+    svg
+      .append("text")
+      .text("Temperature (F)")
+        .attr("y", 20)
+}
+
+const plotCircle = (chart, data, xScale, yScale) => {
+  const aubergine = "#75485E"
+  chart
+    .selectAll("circle")
+    .data(data)
+    .join("circle")
+      .attr("r", 4)
+      .attr("cx", d => xScale(d.date))
+      .attr("cy", d => yScale(d.max_temp_F))
+}
+
+const drawXAxis = (chart, data, innerHeight) => {
+  // const minDate = d3.min(data, d => d.date)
+  const minDate = new Date(2021, 00, 01, 0, 0, 0)
   const maxDate = d3.max(data, d => d.date)
   const xScale = d3.scaleTime()
     .domain([minDate, maxDate])
     .range([0, innerWidth])
-
-  const maxTemp = d3.max(data, d => d.max_temp_F)
-  const yScale = d3.scaleLinear()
-    .domain([0, maxTemp])
-    .range([innerHeight, 0])
-
-    drawXAxis(innerChart, xScale, innerHeight)
-}
-
-const drawXAxis = (chart, xScale, innerHeight) => {
   const xAxis = d3.axisBottom(xScale)
+    .tickFormat(d3.timeFormat("%b"))
   chart
     .append("g")
       .attr("class", "axis-x")
@@ -51,6 +64,14 @@ const drawXAxis = (chart, xScale, innerHeight) => {
       .call(xAxis)
 }
 
-const drawYAxis = (chart, yScale) => {
-  // const yAxis = d3.
+const drawYAxis = (chart, data, innerHeight) => {
+  const maxTemp = d3.max(data, d => d.max_temp_F)
+  const yScale = d3.scaleLinear()
+    .domain([0, maxTemp])
+    .range([innerHeight, 0])
+    const yAxis = d3.axisLeft(yScale)
+  chart
+    .append("g")
+      .attr("class", "axis-y")
+      .call(yAxis)
 }
